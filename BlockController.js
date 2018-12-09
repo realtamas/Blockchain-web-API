@@ -41,13 +41,12 @@ class BlockController {
     postNewBlock() {
         let self = this;
         this.app.post("/api/block", (req, res) => {
-            if (req.query/*.length > 0 && typeof req.query === String*/ ) {
+            if (req.accepts('text/*')) {
                 return self.blockChain.addBlock(new BlockClass.Block(req.query)).then(result => {
                     res.set({
                         'Connection': 'close',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'test/plain'
                     });
-                    res.send(req.query);
                     res.status(201).json(result);
                     res.end();
                 }, error => {
