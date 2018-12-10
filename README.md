@@ -15,27 +15,28 @@ To install the software, you need to do the following:
 **2.** Clone or download GitHub repo files into desired directory from (https://github.com/realtamas/Blockchain-web-API)
 
 **3.** Initialize node.js project in directory where files are located:
-    ```javascript
-    npm init // you can accept defaults provided by npm
-    ```
+    
+```javascript
+npm init // you can accept defaults provided by npm
+```
     
 
 **4.** Install and save dependencies (crypto-js, level, express, body-parser) to project folder:
 
-    ```
-    npm install crypto-js --save
-    npm install level --save
-    npm install express --save
-    npm install body-parser --save
-    ```
+```javascript
+npm install crypto-js --save
+npm install level --save
+npm install express --save
+npm install body-parser --save
+```
 
 ## Running and testing the application
 
 **1.** Run app.js from project directory:
 
-    ```
-    node app.js
-    ```
+```javascript
+node app.js
+```
 
 * app.js will initialize local server with GET and POST endpoints, listening on port 8000 [http://localhost:8000]
 * blockchain application (Block.js, Blockchain.js, LevelSandbox.js and Blockcontroller.js) will initialize a blockchain with a Genesis Block and 9 Test Blocks (data persists in LevelDB local database)
