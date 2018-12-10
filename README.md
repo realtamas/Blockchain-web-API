@@ -1,88 +1,74 @@
-# Project Title
+# Project #3. RESTful web API with Express.js framework for blockchain service
 
-One Paragraph of project description goes here
+The goal of the project was to create a RESTful web API with GET and POST endpoints on a local server for a simple private blockchain solution I created in Project #2 - private blockchain.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-### Prerequisites
+### Prerequisites and installing
 
-What things you need to install the software and how to install them
+To install the software, you need to do the following:
 
-```
-Give examples
-```
+1. Install Node.JS on your computer - visit [https://nodejs.org/en/] and choose installer for your system
 
-### Installing
+2. Clone or download GitHub repo files into desired directory from [https://github.com/realtamas/Blockchain-web-API]
 
-A step by step series of examples that tell you how to get a development env running
+3. Initialize node.js project in directory where files are located:
+    ```
+    npm init
+    ```
+    (accept defaults provided by npm)
 
-Say what the step will be
+4. Install and save dependencies (crypto-js, level, express, body-parser) to project folder:
+    ```
+    npm install crypto-js --save
+    npm install level --save
+    npm install express --save
+    npm install body-parser --save
+    ```
 
-```
-Give the example
-```
+## Running and testing the application
 
-And repeat
+1. Run app.js from project directory:
+    ```
+    node app.js
+    ```
+    - app.js will initialize local server with GET and POST endpoints, listening on port 8000 [http://localhost:8000]
+    - blockchain application (Block.js, Blockchain.js, LevelSandbox.js and Blockcontroller.js) will initialize a blockchain with a Genesis Block and 9 Test Blocks (data persists in LevelDB local database)
 
-```
-until finished
-```
+2. Test GET and POST endpoints:
+    - GET request can be parametrized with api/block/:index, for example:
+    ```
+    curl --request GET -i http://localhost:8000/api/block/9
+    ```
+    (will return Block #9 from blockchain)
 
-End with an example of getting some data out of the system or using it for a little demo
+    - POST request should include a json object with the desired block body contents (block.time, block.hash, block.previoushash will be added automatically by application), should include 'Content-Type':'application/json' in header, e.g.:
+    ```
+    curl --header "Content-Type: application/json" --request POST -i --data '{"body":"Test Block"}' http://localhost:8000/api/block
+    ```
+    (this will add a new block to the end of the blockchain and return the contents of the new block in json format)
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Node.JS](http://www.nodejs.org) - The JavaScript runtime used
+* [Express.JS](http://expressjs.com/) - The web API framework used
+* [LevelDB](http://leveldb.org) - Used to persist blockchain data on disk
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
+
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Tamas Dinh**
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+* Udacity for putting together this excellent course on blockchain development and providing excellent instruction and boilerplate code for starters
+* Andres Pinzon (@AlvaroP) and Steven W. (@StevenW) for swift and clear responses to my questions
