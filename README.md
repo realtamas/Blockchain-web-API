@@ -16,14 +16,14 @@ To install the software, you need to do the following:
 
 **3.** Initialize node.js project in directory where files are located:
 
-    ```javascript
+    ```
     npm init // you can accept defaults provided by npm
     ```
     
 
 **4.** Install and save dependencies (crypto-js, level, express, body-parser) to project folder:
 
-    ```javascript
+    ```
     npm install crypto-js --save
     npm install level --save
     npm install express --save
@@ -34,7 +34,7 @@ To install the software, you need to do the following:
 
 **1.** Run app.js from project directory:
 
-    ```javascript
+    ```
     node app.js
     ```
 
