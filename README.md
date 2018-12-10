@@ -15,8 +15,7 @@ To install the software, you need to do the following:
 **2.** Clone or download GitHub repo files into desired directory from (https://github.com/realtamas/Blockchain-web-API)
 
 **3.** Initialize node.js project in directory where files are located:
-
-    ```
+    ```javascript
     npm init // you can accept defaults provided by npm
     ```
     
