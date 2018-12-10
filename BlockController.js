@@ -30,7 +30,7 @@ class BlockController {
                 res.status(200).json(result);
                 res.end();
                 }, error => {
-                    res.status(404).send('\nBlock not found!');
+                    res.status(404).send('Block not found!\n\n');
             });
         });
     }
@@ -41,19 +41,14 @@ class BlockController {
     postNewBlock() {
         let self = this;
         this.app.post("/api/block", (req, res) => {
-            if (req.accepts('text/*')) {
-                return self.blockChain.addBlock(new BlockClass.Block(req.query)).then(result => {
-                    res.set({
-                        'Connection': 'close',
-                        'Content-Type': 'test/plain'
-                    });
+            if (req.body.body) {
+                return self.blockChain.addBlock(new BlockClass.Block(req.body.body)).then(result => {
                     res.status(201).json(result);
-                    res.end();
                 }, error => {
-                    res.status(500).send('Uknown error occurred on server side. Please retry later.')
+                    res.status(500).send('Uknown error occurred on server side. Please retry later.\n\n')
                 })
             } else {
-                res.status(403).send('\nBlock data must not be empty and should be a string - please resend request with desired block data included in string format.\n')
+                res.status(403).send('Block data must not be empty - please resend request with json object containing desired block data.\n\n')
             }
         });
     }
