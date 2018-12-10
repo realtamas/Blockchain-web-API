@@ -10,9 +10,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 To install the software, you need to do the following:
 
-**1.** Install Node.JS on your computer - visit (https://nodejs.org/en/) and choose installer for your system
+**1.** Install Node.JS on your computer - visit https://nodejs.org/en/ and choose installer for your system
 
-**2.** Clone or download GitHub repo files into desired directory from (https://github.com/realtamas/Blockchain-web-API)
+**2.** Clone or download GitHub repo files into desired directory from https://github.com/realtamas/Blockchain-web-API
 
 **3.** Initialize node.js project in directory where files are located:
     
@@ -38,7 +38,7 @@ npm install body-parser --save
 node app.js
 ```
 
-* app.js will initialize local server with GET and POST endpoints, listening on port 8000 [http://localhost:8000]
+* app.js will initialize local server with GET and POST endpoints, listening on port 8000 (http://localhost:8000)
 * blockchain application (Block.js, Blockchain.js, LevelSandbox.js and Blockcontroller.js) will initialize a blockchain with a Genesis Block and 9 Test Blocks (data persists in LevelDB local database)
 
 **2.** Test GET and POST endpoints:
