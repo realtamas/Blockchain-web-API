@@ -26,7 +26,7 @@ class LevelSandbox {
     }
 
     // Add data to levelDB with key and value (Promise)
-    addLevelDBData(key, value) {
+    addLevelDBData(key, value) { 
         let self = this;
         return new Promise(function(resolve, reject) {
             self.db.put(key, value, function(err) {

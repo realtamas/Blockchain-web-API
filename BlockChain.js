@@ -40,7 +40,7 @@ class Blockchain {
     }
 
     // Add new block
-    addBlock(newBlock) {
+    addBlock(newBlock) { 
         let self = this;
         newBlock.time = new Date().getTime().toString().slice(0,-3);
         return this.getBlockHeight()
